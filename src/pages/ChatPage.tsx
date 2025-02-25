@@ -103,7 +103,9 @@ const ChatPage = () => {
             />
           ))}
 
-          {!!streamedThought && <ThoughtMessage thought={streamedThought} />}
+          {!!streamedThought?.trim().length && (
+            <ThoughtMessage thought={streamedThought} />
+          )}
 
           {!!streamedMessage && (
             <ChatMessage role="assistant" content={streamedMessage} />

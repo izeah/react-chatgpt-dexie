@@ -11,7 +11,9 @@ export const ChatMessage = (props: ChatMessageProps) => {
   const isAssistant = props.role === "assistant";
   return (
     <>
-      {!!props.thought && <ThoughtMessage thought={props.thought} />}
+      {!!props.thought?.trim().length && (
+        <ThoughtMessage thought={props.thought} />
+      )}
       <div
         className={`flex items-start gap-4 ${
           isAssistant ? "flex-row" : "flex-row-reverse"
